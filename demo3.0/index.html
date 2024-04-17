@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;600&display=swap">
+    <title>Ultracold Atom Demo</title>
+    <style>
+        body {
+            background-image: url('ciqcsetup.jpg');
+            background-size: auto cover; /* Auto width, cover height */
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="left-section">
+            <div id="siteTitleWrapper" class="wrapper" data-content-field="site-title">
+                <h1 id="siteTitle" class="site-title">
+                    <a href="https://ultracold.physics.berkeley.edu">UC Berkeley Ultracold Atomic Physics</a></h1>
+            </div>
+            <div class = 'CIQClogo'>
+                <a href= "https://www.ciqc.berkeley.edu"><img src = "ciqc-logo-long-transparent.png"></a>
+            </div>
+        </div>
+        <div class="right-section">
+            <button id="playPauseBtn"></button>
+        </div>
+        
+    </header>
+    <div class="mainsection">
+        <div class="main-leftsection">
+            <div atomdisplay>
+                <!-- <canvas id="canvas"></canvas> -->
+                <img class="canvasdisplay" id="fullsimmovie" src="/fullsimmovie2d/array_0.jpg">
+                <script src="main.js"></script>
+            </div>
+        </div>
+        
+        <div class="main-rightsection">
+            <div class="slideshow-container">
+                <div class="slide active" id="0welcome">
+                    <!-- Content for third slide -->
+                    <h2><span class="typewriter-textheader">Welcome to Ultracold!</span></h2>
+                    <p><span class="typewriter-text">We use neutral atoms trapped in optical cavities to explore many-body physics and quantum information.
+                        Here, you'll see how to load single atoms in an optical lattice. 
+                        <br> <br> We'll end up with a 7 by 7 grid of atoms, 
+                        which can be used to investigate quantum networking, Dicke Superradiance, and exotic spin systems. </span></p>
+                    <div class="centerer">
+                        <img class = "MOTdiagram"  src="sciencetablecropped.jpg">
+                    </div>
+                    <div class="centerer">
+                        <p class="imagesub"> Apparatus diagram from Emma Deist's Thesis</p>
+                    </div>
+                        
+                </div>
+                <div class="slide" id="1atomsload">
+                    <!-- Content for first slide -->
+                    <h2><span class="typewriter-textheader"></span>Atoms loading...</span></h2>
+                    <p><span class="typewriter-text">We start by turning on a MOT (Magneto-Optical Trap) to make a cold atomic gas.
+                        Then, optical tweezers are turned on that randomly trap single atoms - Those are the dots on the left.
+                        This random distribution isn't too useful, so we start sorting.</span>
+                    </p>
+                    <div class="centerer">
+                        <img class = "atomloadedincavity"  src="atomloadedincavitypic.png">
+                    </div>
+                    <div class="centerer">
+                        <p class="imagesub">From our 2023 'Super-radiant and Sub-radiant Cavity Scattering by Atom Arrays' paper</p>
+                    </div>
+                </div>
+                <div class="slide" id="2sortatoms">
+                    <!-- Content for second slide -->
+                    <h2><span class="typewriter-textheader"></span>Sorting atoms...</span></h2>
+                    <p><span class="typewriter-text">We can move atoms trapped in optical tweezers around with a deeper optical trap (A brighter laser). 
+                    This is usually done with an AOD (Acousto-Optic Deflector), and it gives us full control over the position
+                    of our atoms.</span>
+                        
+                    </p>
+                    <div class="centerer">
+                        <img class = "atominlattice"  src="atominlattice.png">
+                    </div>
+                    <div class="centerer">
+                        <p class="imagesub"> Atom movement in optical lattice. Red - Nodes, Blue - Antinodes.</p>
+                    </div>
+                </div>
+                <div class="slide" id="3atomssorted">
+                    <!-- Content for third slide -->
+                    <h2><span class="typewriter-textheader">Atoms sorted!</span></h2>
+                    <p><span class="typewriter-text">We now have an array of single atoms to play with. Notice how there's some leftover atoms? They'll come in handy soon,
+                        because our atoms will start disappearing. Thermal noise and random fluctuations give an average atom lifetime of half a second.</span>
+                    </p>
+                    <div class="centerer">
+                        <img class = "atominline"  src="atominline.jpg">
+                    </div>
+                    <div class="centerer">
+                        <p class="imagesub">A line of atoms from Justin Gerber's Thesis</p>
+                    </div>
+
+                </div>
+                <div class="slide" id="4atomsresorted">
+                    <!-- Content for third slide -->
+                    <h2><span class="typewriter-textheader">Resorting atoms...</span></h2>
+                    <p><span class="typewriter-text">While atoms disappear, we can-continuously image our cavity and do feedback-based resorting. 
+                        This lets us correct for gaps and keep getting useful data. </span></p>
+                    <div class="centerer">
+                        <img class = "photoncountscaling"  src="photoncountscaling.png">
+                    </div>
+                    <div class="centerer">
+                        <p class="imagesub">Cavity photon number scaling from our 2023 'Super-radiant and Sub-radiant Cavity Scattering by Atom Arrays' paper</p>
+                    </div>
+                </div>
+                <div class="slide" id="5shuttingdown">
+                    <!-- Content for third slide -->
+                    <h2><span class="typewriter-textheader">Shutting down...</span></h2>
+                    <p><span class="typewriter-text">All good things must come to an end. Eventually, enough atoms vanish that resorting becomes useless.
+                        This run blinks out, and a new one begins.</span>
+                    </p>
+                    <div class="centerer">
+                        <img class = "motsciencecoolpic"  src="motsciencecoolpic.png">
+                    </div>
+
+                </div>
+            </div>
+            <div class="diagnostics">
+                    <p id="currentrun">Waiting to begin simulation...</p>
+            </div>
+            <div class = "livedisplays">
+                <div id="SLM">
+                    <img id="slmphasedisplay" class="slmphasedisplay" src="/slmzoomedphases/zoomed_0.jpg" alt="SLM Phase Display">
+                    <p class = "imgsubtitle">Input Phase</p>
+                </div>
+                <div class ="systemdiagnostics" id="system info">
+                    <p class="systeminfo"> 
+                        <span>&#951;<sub>in</sub> = 0.8%</span> <br>
+                        <span>&#951;<sub>out</sub> = 58%</span> <br>
+                        <span>L<sub>cav</sub> = 9.4 mm</span> <br>
+                        <span>&#954; = 2&pi; &middot; 1.1 MHz</span> <br>
+                        <span>C = 5.8</span>
+                        </p> 
+                    <p class = "systeminfo">
+                        Simulating: <button class="dimtoggle" id="displaytoggleButton"><span id="text1D">1D</span> <span id="text2D">2D</span></button>
+                    </p>
+                    
+
+                
+                </div>
+            </div>
+            
+
+        </div>
+        
+
+
+    </div>
+    
+</body>
+</html>
